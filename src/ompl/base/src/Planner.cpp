@@ -324,7 +324,7 @@ const ompl::base::State *ompl::base::PlannerInputStates::nextGoal(const PlannerT
                                planner_ ? planner_->getName().c_str() : "PlannerInputStates", ss.str().c_str());
                 } while (!ptc && sampledGoalsCount_ < goal->maxSampleCount() && goal->canSample());
             }
-            if (goal->couldSample() && !ptc)
+            if (goal->couldSample() && !ptc && sampledGoalsCount_ < goal->maxSampleCount())
             {
                 if (first)
                 {
